@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+  <title>code proyec</title>
+  <style>
+    body {
+      background-color: #212121;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .code-container {
+      position: relative;
+      margin: 0 auto;
+      background-color: #1e1e1e;
+      border-radius: 4px;
+      padding: 5px;
+      max-width: 1400px;
+      margin-top: 10px;
+    }
+
+    .language {
+      background-color: #1e1e1e;
+      padding: 2px;
+      border-radius: 4px;
+      margin-bottom: 5px;
+      font-size: 12px;
+      font-weight: 300;
+    } 
+
+    .language1 {
+      background-color: #151515;
+      padding: 2px;
+      border-radius: 4px;
+      margin-bottom: 5px;
+      font-size: 15px;
+      font-weight: 300;
+    }
+
+    .btn-estetico {
+  /* Estilos para el botón en modo oscuro */
+  background-color: #222; /* Color de fondo oscuro */
+  border: none; /* Sin borde */
+  color: #fff; /* Color de texto blanco */
+  padding: 10px 20px; /* Relleno interno */
+  text-align: center; /* Alineación del texto */
+  text-decoration: none; /* Sin subrayado */
+  display: inline-block; /* Mostrar como bloque en línea */
+  font-size: 16px; /* Tamaño de fuente */
+  margin: 4px 2px; /* Margen exterior */
+  cursor: pointer; /* Cambiar el cursor al pasar por encima */
+  border-radius: 4px; /* Borde redondeado */
+  transition-duration: 0.4s; /* Duración de la transición */
+}
+
+.btn-estetico:hover {
+  /* Estilos al pasar el cursor por encima en modo oscuro */
+  background-color: #1c1c1c; /* Color de fondo oscuro modificado */
+}
+
+
+
+
+    .code {
+      font-family: monospace;
+      color: #ffffff;
+      padding: 5px;
+      border-radius: 4px;
+      background-color: #333333;
+      overflow-x: auto;
+      font-size: 13px;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      background-color: #444444;
+      border: none;
+      color: #ffffff;
+      font-size: 12px;
+      padding: 3px 6px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .copy-button:hover {
+      background-color: #555555;
+    }
+ 
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .small-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+
+    
+    
+  </style>
+<script>
+  function copyCode(containerId, buttonId) {
+    const container = document.getElementById(containerId);
+    const codeElement = container.querySelector('.code');
+    const code = codeElement.innerText;
+
+    navigator.clipboard.writeText(code)
+      .then(() => {
+        const button = document.getElementById(buttonId);
+        button.innerText = '✓ copied!';
+        setTimeout(function() {
+          button.innerText = 'code copy';
+        }, 1000);
+      })
+      .catch((error) => {
+        console.error('Error al copiar el código:', error);
+      });
+  }
+
+  function typeCode(element, code, speed) {
+    let i = 0;
+    const interval = setInterval(() => {
+      if (i >= code.length) {
+        clearInterval(interval);
+        return;
+      }
+
+      const currentCode = code.substring(0, i + 1);
+      element.innerHTML = '<code>' + currentCode + '</code>';
+      i++;
+    }, speed);
+  }
+
+  window.onload = function() {
+    const containers = document.getElementsByClassName('code-container');
+
+    for (let i = 0; i < containers.length; i++) {
+      const container = containers[i];
+      const codeElement = container.querySelector('.code');
+      const code = codeElement.innerText.trim();
+      const speed = parseFloat(container.getAttribute('data-speed')) || 1;
+
+      codeElement.innerHTML = '<code></code>';
+
+      typeCode(codeElement.firstChild, code, speed);
+    }
+  };
+</script>
+
+</head>
+
+<body>
+
+<!-- ------------------------------------------fila 1---------------------------------------------------------- -->
+
+  <div class="code-container" id="codeContainer1" data-speed="50">
+    <div class="language">Para ejecutar este código, necesitarás tener instaladas las bibliotecas de Python requeridas: tkinter y moviepy.</div>
+    <pre class="code">
+      <code>
+Además de las bibliotecas, necesitarás tener archivos de video en formato MP4 disponibles en tu sistema para realizar el recorte. Asegúrate de proporcionar la ruta correcta al archivo de video 
+en la interfaz gráfica.
+
+Una vez que hayas instalado las bibliotecas y tengas los archivos de video listos, simplemente ejecuta el código Python en tu entorno de desarrollo preferido. La ventana de la interfaz gráfica 
+se abrirá y podrás interactuar con ella para seleccionar el archivo de video, especificar la duración de los clips y realizar el recorte.
+      </code>
+    </pre>
+    <button class="copy-button" id="copyButton1" onclick="copyCode('codeContainer1', 'copyButton1')">code copy</button>
+  </div>  
+<!-- ------------------------------------------fila 2---------------------------------------------------------- -->
+<div class="code-container" id="codeContainer1" data-speed="0.5">
+  <div class="language">La biblioteca tkinter es la biblioteca estándar de Python para crear interfaces gráficas de usuario. Por lo general, ya está incluida en las instalaciones estándar de Python, por lo que no deberías tener que instalarla por separado.</div>
+  <pre class="code">
+    <code>
+      pip install tk
+    </code>
+  </pre>
+  <button class="copy-button" id="copyButton1" onclick="copyCode('codeContainer1', 'copyButton1')">code copy</button>
+</div>
+
+
+<!-- ------------------------------------------fila 3---------------------------------------------------------- -->
+<div class="code-container" id="codeContainer2" data-speed="0.5">
+  <div class="language">La biblioteca moviepy es una biblioteca externa utilizada para el procesamiento de video en Python. Puedes instalarla ejecutando el siguiente comando en tu entorno de Python:</div>
+  <pre class="code">
+    <code>
+    pip install moviepy
+
+    </code>
+  </pre>
+  <button class="copy-button" id="copyButton2" onclick="copyCode('codeContainer2', 'copyButton2')">code copy</button>
+</div>
+
+
+<!-- ------------------------------------------fila 4---------------------------------------------------------- -->
+<div class="code-container" id="codeContainer3" data-speed="0.1">
+  <div class="language">Python</div>
+  <pre class="code">
+    <code>
+from tkinter import filedialog
+from moviepy.editor import VideoFileClip
+import tkinter as tk
+
+def seleccionar_video():
+    archivo_video = filedialog.askopenfilename(filetypes=[("Archivos de video", "*.mp4")])
+    entry_video.delete(0, tk.END)
+    entry_video.insert(0, archivo_video)
+
+def seleccionar_carpeta():
+    carpeta_salida = filedialog.askdirectory()
+    entry_carpeta_salida.delete(0, tk.END)
+    entry_carpeta_salida.insert(0, carpeta_salida)
+
+def recortar_video():
+    nombre_video = entry_video.get()
+    duracion_clip = int(entry_duracion.get())
+    carpeta_salida = entry_carpeta_salida.get()
+
+    video = VideoFileClip(nombre_video)
+    duracion_total = video.duration
+
+    cantidad_clips = int(duracion_total / duracion_clip)
+    duracion_ultimo_clip = duracion_total % duracion_clip
+
+    lbl_resultado.config(text=f"Se generarán {cantidad_clips} clips de {duracion_clip} segundos cada uno")
+
+    nombre_salida_base = entry_nombre_salida.get()
+
+    for i in range(cantidad_clips):
+        tiempo_inicio = i * duracion_clip
+        tiempo_fin = (i + 1) * duracion_clip
+        nombre_salida = f"{nombre_salida_base}_{i+1}.mp4"
+
+        clip_recortado = video.subclip(tiempo_inicio, tiempo_fin)
+        ruta_salida = f"{carpeta_salida}/{nombre_salida}"
+        clip_recortado.write_videofile(ruta_salida, codec="libx264", threads=4, preset="ultrafast")
+
+    if duracion_ultimo_clip > 0:
+        tiempo_inicio_ultimo = cantidad_clips * duracion_clip
+        tiempo_fin_ultimo = duracion_total
+        nombre_ultimo_salida = f"{nombre_salida_base}_{cantidad_clips+1}.mp4"
+
+        clip_ultimo = video.subclip(tiempo_inicio_ultimo, tiempo_fin_ultimo)
+        ruta_ultimo_salida = f"{carpeta_salida}/{nombre_ultimo_salida}"
+        clip_ultimo.write_videofile(ruta_ultimo_salida, codec="libx264", threads=4, preset="ultrafast")
+
+    video.close()
+    lbl_resultado.config(text="Recorte completado")
+
+ventana = tk.Tk()
+ventana.title("Video Cutter")
+
+# Etiqueta y campo de entrada para el video
+lbl_video = tk.Label(ventana, text="Video:")
+lbl_video.grid(row=0, column=0, padx=10, pady=10)
+entry_video = tk.Entry(ventana, width=50)
+entry_video.grid(row=0, column=1, padx=10, pady=10)
+btn_seleccionar = tk.Button(ventana, text="Seleccionar", command=seleccionar_video)
+btn_seleccionar.grid(row=0, column=2, padx=10, pady=10)
+
+# Etiqueta y campo de entrada para la duración de cada clip
+lbl_duracion = tk.Label(ventana, text="Duración de cada clip (segundos):")
+lbl_duracion.grid(row=1, column=0, padx=10, pady=10)
+entry_duracion = tk.Entry(ventana, width=10)
+entry_duracion.grid(row=1, column=1, padx=10, pady=10)
+
+# Etiqueta y campo de entrada para la carpeta de salida
+lbl_carpeta_salida = tk.Label(ventana, text="Carpeta de salida:")
+lbl_carpeta_salida.grid(row=2, column=0, padx=10, pady=10)
+entry_carpeta_salida = tk.Entry(ventana, width=50)
+entry_carpeta_salida.grid(row=2, column=1, padx=10, pady=10)
+btn_seleccionar_carpeta = tk.Button(ventana, text="Seleccionar carpeta", command=seleccionar_carpeta)
+btn_seleccionar_carpeta.grid(row=2, column=2, padx=10, pady=10)
+
+# Etiqueta y campo de entrada para el nombre del archivo de salida
+lbl_nombre_salida = tk.Label(ventana, text="Nombre del archivo de salida:")
+lbl_nombre_salida.grid(row=3, column=0, padx=10, pady=10)
+entry_nombre_salida = tk.Entry(ventana, width=50)
+entry_nombre_salida.grid(row=3, column=1, padx=10, pady=10)
+
+# Botón de recorte
+btn_recortar = tk.Button(ventana, text="Recortar", command=recortar_video)
+btn_recortar.grid(row=4, column=0, columnspan=2, padx=10, pady=10)
+
+# Etiqueta para mostrar el resultado
+lbl_resultado = tk.Label(ventana, text="")
+lbl_resultado.grid(row=5, column=0, columnspan=2, padx=10, pady=10)
+
+ventana.mainloop()
+
+</code>
+  </pre>
+  <button class="copy-button" id="copyButton3" onclick="copyCode('codeContainer3', 'copyButton3')">code copy</button>
+</div>
+
+<!-- ---------------------------------------------------------------------------------------------------- -->
+<div class="footer">
+  <div class="icon-container center">
+    <a href="https://github.com/DanteMRX/Cuadro_de_codigo_copy">
+      <img src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_960_720.png" alt="GitHub Icon"
+        class="icon small-icon">
+    </a>
+  </div>
+</div>
+
+
+
+  <!-- ---------------------------------------------------------------------------------------------------- -->
+
+  <!-- Agrega más cuadros de código según tus necesidades -->
+
+</body>
+
+</html>
